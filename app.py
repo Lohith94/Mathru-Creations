@@ -15,3 +15,16 @@ import random
 import string
 import json
 import requests
+
+
+
+app = Flask(__name__)
+
+CLIENT_ID = json.loads(
+    open('client_secrets.json', 'r').read())['web']['client_id']
+
+engine = create_engine('sqlite:///mathru.db',
+                       connect_args={'check_same_thread': False})
+
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
