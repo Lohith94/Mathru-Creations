@@ -28,3 +28,15 @@ engine = create_engine('sqlite:///mathru.db',
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+
+
+
+# Home page.
+@app.route('/')
+def home():
+    """Go to homepage."""
+
+    return render_template(
+        'index.html')
