@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Mathru Creations</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
 
-<h1>Welcome to Mathru Creations</h1>
-<p></p>
+{% block content %}
 
-</body>
-</html> 
+  <div class="container sections">  
+            <div class="row">
+              <div class="col-md-6" style=padding-top: 8px;">
+                <h2>Category</h2><hr>
+              
+                {% for category in categories %}
+                <div class="list-group">
+                    <a href="{{ url_for('show_items_in_category', category_id=category.id) }}" class="list-group-item list-group-item-action list-group-item-primary">
+                        {{ category.name }}
+                    </a>
+                </div>
+                {% endfor %}             
+             </div>             
+          </div>
+</div>
+{% endblock %}
